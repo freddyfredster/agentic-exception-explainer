@@ -83,7 +83,7 @@ QUERY_KPI_TOOL = {
 def _get_chroma_collection():
     client = chromadb.PersistentClient(
         path=VECTORSTORE_DIR,
-        settings=Settings()
+        settings=Settings(allow_reset=True)
     )
     return client.get_collection("docs")
 
