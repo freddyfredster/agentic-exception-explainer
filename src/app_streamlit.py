@@ -8,6 +8,11 @@ import streamlit as st
 from src.agent import run_agent
 from src.ingest_docs import build_doc_vectorstore
 
+# Build the vector store once per app session (Cloud and local)
+if "vectorstore_built" not in st.session_state:
+    build_doc_vectorstore()
+    st.session_state.vectorstore_built = True
+
 
 st.set_page_config(page_title="Exception Explainer", page_icon="📉")
 
