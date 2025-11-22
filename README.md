@@ -45,3 +45,18 @@ Perfect for showcasing modern agentic analytics on LinkedIn, in portfolio projec
 > “What changed compared to July for the South region?”
 
 The agent handles the full investigation — querying KPIs, finding relevant documents, and generating a concise, decision-focused explanation.
+
+## ⚡ Quick Start
+
+```PowerShell
+git clone https://github.com/freddyfredster/agentic-exception-explainer.git
+cd agentic-exception-explainer
+
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+pip install -r requirements.txt
+
+python -m src.ingest_docs
+streamlit run src/app_streamlit.py
+
