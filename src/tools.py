@@ -6,6 +6,12 @@ from chromadb.config import Settings
 
 from .config import KPI_FILE, VECTORSTORE_DIR
 
+from openai import OpenAI
+from .config import OPENAI_API_KEY
+
+client = OpenAI(api_key=OPENAI_API_KEY)
+
+
 # ---------------------------------------
 # KPI QUERY TOOL
 # ---------------------------------------
@@ -84,25 +90,36 @@ def _get_chroma_collection():
 def search_docs(query: str, top_k: int = 5) -> List[Dict[str, Any]]:
     collection = _get_chroma_collection()
 
+    # Create an embedding for the query using the SAME model as ingest
+    resp = client.embeddings.create(
+        model="text-embedding-3-small",
+        input=[query],
+    )
+    query_embedding = resp.data[0].embedding
+
+    # Use query_embeddings instead of query_texts
     results = collection.query(
-        query_texts=[query],
-        n_results=top_k
+        query_embeddings=[query_embedding],
+        n_results=top_k,
     )
 
     output = []
     for doc, meta, id_ in zip(
         results["documents"][0],
         results["metadatas"][0],
-        results["ids"][0]
+        results["ids"][0],
     ):
-        output.append({
-            "id": id_,
-            "text": doc,
-            "file_id": meta.get("file_id"),
-            "source_type": meta.get("source_type")
-        })
+        output.append(
+            {
+                "id": id_,
+                "text": doc,
+                "file_id": meta.get("file_id"),
+                "source_type": meta.get("source_type"),
+            }
+        )
 
     return output
+
 
 SEARCH_DOCS_TOOL = {
     "type": "function",
