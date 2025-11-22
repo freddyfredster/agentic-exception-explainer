@@ -44,26 +44,22 @@ def embed_texts(texts: List[str]):
 
 
 def build_doc_vectorstore():
-    """Create/reset the Chroma collection and add all document chunks."""
+    """Create or refresh the Chroma collection and add all document chunks."""
     os.makedirs(VECTORSTORE_DIR, exist_ok=True)
 
+    # Always use the same settings here and in tools.py
     chroma_client = chromadb.PersistentClient(
         path=VECTORSTORE_DIR,
-        settings=Settings(allow_reset=True),
+        settings=Settings(),
     )
 
-    # Start clean each time for this demo
-    chroma_client = chromadb.PersistentClient(
-    path=VECTORSTORE_DIR,
-    settings=Settings()  # use default settings everywhere
-)
-
-# Get or create the collection without resetting
-try:
-    collection = chroma_client.get_collection("docs")
-except Exception:
-    collection = chroma_client.create_collection("docs")
-
+    # Get or create the collection
+    try:
+        collection = chroma_client.get_collection("docs")
+        # Clear existing docs so we don't duplicate chunks
+        collection.delete(where={})
+    except Exception:
+        collection = chroma_client.create_collection("docs")
 
     docs = load_text_files()
     ids, texts, metas = [], [], []
