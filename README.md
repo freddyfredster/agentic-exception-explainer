@@ -49,7 +49,7 @@ The agent handles the full investigation — querying KPIs, finding relevant doc
 ## ⚡ Quick Start
 
 ```PowerShell
-git clone https://github.com/<your-username>/agentic-exception-explainer.git
+git clone https://github.com/freddyfredster/agentic-exception-explainer.git
 cd agentic-exception-explainer
 
 python -m venv .venv
