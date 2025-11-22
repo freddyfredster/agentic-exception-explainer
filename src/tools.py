@@ -83,9 +83,10 @@ QUERY_KPI_TOOL = {
 def _get_chroma_collection():
     client = chromadb.PersistentClient(
         path=VECTORSTORE_DIR,
-        settings=Settings(allow_reset=True)
+        settings=Settings()  # same as ingest_docs
     )
     return client.get_collection("docs")
+
 
 def search_docs(query: str, top_k: int = 5) -> List[Dict[str, Any]]:
     collection = _get_chroma_collection()

@@ -53,12 +53,17 @@ def build_doc_vectorstore():
     )
 
     # Start clean each time for this demo
-    try:
-        chroma_client.delete_collection("docs")
-    except Exception:
-        pass
+    chroma_client = chromadb.PersistentClient(
+    path=VECTORSTORE_DIR,
+    settings=Settings()  # use default settings everywhere
+)
 
+# Get or create the collection without resetting
+try:
+    collection = chroma_client.get_collection("docs")
+except Exception:
     collection = chroma_client.create_collection("docs")
+
 
     docs = load_text_files()
     ids, texts, metas = [], [], []
