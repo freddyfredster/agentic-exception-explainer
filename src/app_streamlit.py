@@ -1,12 +1,12 @@
 import sys
 import os
 
-# Add project root to PYTHONPATH
+# Make project root importable
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from src.agent import run_agent
-
 import streamlit as st
+from src.agent import run_agent
+from src.ingest_docs import build_doc_vectorstore
 
 
 st.set_page_config(page_title="Exception Explainer", page_icon="📉")
