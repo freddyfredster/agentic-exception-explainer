@@ -1,0 +1,30 @@
+Date,YearMonth,Product,Region,Channel,Sales,Sales_LastMonth,Sales_LastYear,Cancellations,Cancellations_LastMonth
+2025-04-30,2025-04,Product A,North,Online,120000,,,
+2025-04-30,2025-04,Product A,South,Online,90000,,,
+2025-04-30,2025-04,Product B,North,Online,80000,,,
+2025-04-30,2025-04,Product B,South,Online,75000,,,
+
+2025-05-31,2025-05,Product A,North,Online,130000,120000,,
+2025-05-31,2025-05,Product A,South,Online,95000,90000,,
+2025-05-31,2025-05,Product B,North,Online,84000,80000,,
+2025-05-31,2025-05,Product B,South,Online,78000,75000,,
+
+2025-06-30,2025-06,Product A,North,Online,135000,130000,,
+2025-06-30,2025-06,Product A,South,Online,97000,95000,,
+2025-06-30,2025-06,Product B,North,Online,86000,84000,,
+2025-06-30,2025-06,Product B,South,Online,80000,78000,,
+
+2025-07-31,2025-07,Product A,North,Online,140000,135000,,
+2025-07-31,2025-07,Product A,South,Online,99000,97000,,
+2025-07-31,2025-07,Product B,North,Online,88000,86000,,
+2025-07-31,2025-07,Product B,South,Online,82000,80000,,
+
+2025-08-31,2025-08,Product A,North,Online,142000,140000,,
+2025-08-31,2025-08,Product A,South,Online,100000,99000,,
+2025-08-31,2025-08,Product B,North,Online,62000,88000,,
+2025-08-31,2025-08,Product B,South,Online,83000,82000,,
+
+2025-09-30,2025-09,Product A,North,Online,145000,142000,,
+2025-09-30,2025-09,Product A,South,Online,101000,100000,,
+2025-09-30,2025-09,Product B,North,Online,70000,62000,,
+2025-09-30,2025-09,Product B,South,Online,84000,83000,,
