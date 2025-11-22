@@ -1,0 +1,10 @@
+Operations & Supply Chain Notes - August 2025
+
+- Product B, North region:
+  - Warehouse reported intermittent stockouts in the first half of August.
+  - Lead times temporarily increased from 2 days to 5–7 days for some orders.
+  - Customer service logged multiple complaints about delayed deliveries.
+- South region was less affected, with only minor delays.
+- Root causes:
+  - Supplier constraints on a specific component.
+  - Unexpected spike in July orders not fully accounted for in planning.
